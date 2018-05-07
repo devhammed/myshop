@@ -2,60 +2,33 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="MyShop - Shopping Cart Project built with HTML, CSS and JavaScript" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/app.css">
   <title>MyShop - Shopping Cart Project</title>
-  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="row red">
-    <h2 class="col" style="flex:0 80%">My Shop - Shopping Cart Project</h2>
-    <div id="open-cart" class="col pos-container">
-      <img src="cart.png" alt="Cart" />
-      <span class="pos-topright tag" id="items-count"></span>
+  <header class="container red row">
+    <div class="col" style="flex: 0 80%;">
+      <h1>MyShop - Shopping Cart</h1>
+    </div>
+    <div class="col">
+      <a id="view-cart" href="#cart">View Cart (<span id="cart-count"></span>)</a>
     </div>
   </header>
-  <section id="cart" class="card hide">
-  </section>
-  <section class="container light-grey" id="products">
-    <div class="row mobile">
-      <div class="col-3 border">
-        <img src="product.png" alt="product img" />
-        <p>Product xyz ($50.00)</p>
-        <button data-price="$50.00" class="btn add"> + Add to Cart</button>
+  <main>
+    <section id="cart-container" class="modal">
+      <a id="close-cart" href="#close-cart">&times; <br /> Close</a>
+      <p id="total-price-container">Total Price: <span id="total-price"></span></p>
+      <div id="cart" class="modal-body">
       </div>
-      <div class="col-3 border">
-        <img src="product.png" alt="product img" />
-        <p>Product xyz ($65.00)</p>
-        <button data-price="$65.00" class="btn add"> + Add to Cart</button>
-      </div>
-      <div class="col-3 border">
-        <img src="product.png" alt="product img" />
-        <p>Product xyz ($25.2)</p>
-        <button data-price="$25.2" class="btn add"> + Add to Cart</button>
-      </div>
-    </div>
-    <div class="row mobile">
-      <div class="col-3 border">
-        <img src="product.png" alt="product img" />
-        <p>Product xyz ($62.00)</p>
-        <button data-price="$62.00" class="btn add"> + Add to Cart</button>
-      </div>
-      <div class="col-3 border">
-        <img src="product.png" alt="product.png" />
-        <p>Product xyz ($94.00)</p>
-        <button data-price="$94.00" class="btn add"> + Add to Cart</button>
-      </div>
-      <div class="col-3 border">
-        <img src="product.png" alt="product img" />
-        <p>Product xyz ($25.00)</p>
-        <button data-price="$25.00" class="btn add"> + Add to Cart</button>
-      </div>
-    </div>
-  </section>
+    </section>
+    <section class="row mobile" id="products">
+    </section>
+  </main>
   <footer class="container red">
-    <h3>Copyright 2017 | MyShop ( Oyedele Hammed Horlah )</h3>
+    <h3>Copyright 2018 MyShop |  Oyedele Hammed Horlah</h3>
   </footer>
-  <script src="app.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>
