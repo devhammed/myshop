@@ -1,4 +1,13 @@
-function cartApp(){
+/**
+ * CartApp.js
+ * @author Oyedele Hammed Horlah
+ * @description A simple Object that controls the cart application
+ * @see https://www.github.com/devHammed/myshop
+ * @since 12th October, 2017
+ * @version 2.0
+ */
+
+function CartApp() {
   var self = this;
   self.cart = [];
   self.products = [
@@ -23,22 +32,22 @@ function cartApp(){
   self.cartContainerEl = document.getElementById( 'cart-container' );
   self.totalPriceEl = document.getElementById( 'total-price' );
 
-  self.addToCart = function( id ){
+  self.addToCart = function( id ) {
     var product = self.products[ id ];
     if ( !product ) return;
     self.cart.push( product );
     self.renderCart();
   };
 
-  self.removeFromCart = function( idx ){
+  self.removeFromCart = function( idx ) {
     if ( idx < 0 ) return;
     self.cart.splice( idx, 1 );
     self.renderCart();
   }
 
-  self.renderProducts = function(){
+  self.renderProducts = function() {
     var productsHtml = [];
-    self.products.forEach( function( product, id ){
+    self.products.forEach( function( product, id ) {
       var productHtml = '<div class="product"><p><img src="' + product.img + '" /></p><h2>' +
         product.name + '</h2><p>$' + product.price +
         '</p><p><button class="add-to-cart" " data-id="' + id + '">Add to Cart</button></p></div>';
@@ -58,7 +67,7 @@ function cartApp(){
         (self.totalPriceEl.innerHTML = '$' + totalPrice)
       );
     }
-    self.cart.forEach( function( product, id ){
+    self.cart.forEach( function( product, id ) {
       var productHtml = '<div class="row container border"><div class="col">' +
       '<img src = "' + product.img + '" /></div><div class="col"><h3>' +
       product.name + '</h3><p>$' + product.price + '</p></div>' +
@@ -72,14 +81,14 @@ function cartApp(){
   }
 
   self.bindEvents = function() {
-    window.addEventListener( 'DOMContentLoaded', function(){
+    window.addEventListener( 'DOMContentLoaded', function() {
       self.renderProducts();
       self.renderCart();
       self.viewCartEl.onclick = function( ev ) {
         ev.preventDefault();
         self.cartContainerEl.style.display = 'block';
       }
-      self.closeCartEl.onclick = function( ev ){
+      self.closeCartEl.onclick = function( ev ) {
         ev.preventDefault();
         self.cartContainerEl.style.display = 'none';
       }
@@ -87,27 +96,25 @@ function cartApp(){
     } );
   }
 
-  self.bindAddEvents = function(){
+  self.bindAddEvents = function() {
     var addBtns = [].slice.call( document.getElementsByClassName( 'add-to-cart' ) ) || [];
-    addBtns.forEach( function( addBtn ){
-      addBtn.onclick = function(){
+    addBtns.forEach( function( addBtn ) {
+      addBtn.onclick = function() {
         self.addToCart( addBtn.getAttribute( 'data-id' ) );
       }
     } );
   }
 
-  self.bindRemoveEvents = function(){
+  self.bindRemoveEvents = function() {
     var removeBtns = [].slice.call( self.cartEl.getElementsByClassName( 'remove-from-cart' ) ) || [];
-    removeBtns.forEach( function( removeBtn ){
-      removeBtn.onclick = function(){
+    removeBtns.forEach( function( removeBtn ) {
+      removeBtn.onclick = function() {
         self.removeFromCart( removeBtn.getAttribute( 'data-id' ) );
       }
     } );
   }
 
-  // starts the cart app
   self.bindEvents();
-
 }
 
-new cartApp();
+new CartApp();
