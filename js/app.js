@@ -1,5 +1,5 @@
 /**
- * CartApp.js
+ * MyShop.js
  * @author Oyedele Hammed Horlah
  * @description A simple Object that controls the cart application
  * @see https://www.github.com/devHammed/myshop
