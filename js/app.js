@@ -7,7 +7,7 @@
  * @version 2.0
  */
 
-function CartApp() {
+function MyShop() {
   var self = this;
   self.cart = [];
   self.products = [
@@ -62,10 +62,9 @@ function CartApp() {
       totalPrice = 0;
 
     if ( !self.cart.length ) {
-      return (
-        (self.cartEl.innerHTML = 'Cart is empty, start shopping!') &&
-        (self.totalPriceEl.innerHTML = '$' + totalPrice)
-      );
+      self.cartEl.innerHTML = 'Cart is empty, start shopping!';
+      self.totalPriceEl.innerHTML = '$' + totalPrice;
+      return;
     }
     self.cart.forEach( function( product, id ) {
       var productHtml = '<div class="row container border"><div class="col">' +
@@ -117,4 +116,4 @@ function CartApp() {
   self.bindEvents();
 }
 
-new CartApp();
+new MyShop();
