@@ -39,9 +39,9 @@ function MyShop() {
     self.renderCart();
   };
 
-  self.removeFromCart = function( idx ) {
-    if ( idx < 0 ) return;
-    self.cart.splice( idx, 1 );
+  self.removeFromCart = function( id ) {
+    if ( id < 0 ) return;
+    self.cart.splice( id, 1 );
     self.renderCart();
   }
 
