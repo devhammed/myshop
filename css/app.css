@@ -22,7 +22,8 @@ button {
   justify-content: center;
   align-content: center
 }
-.col, .product {
+.col,
+.product {
   flex-grow: 1;
   margin: 2px;
   padding: 2px;
